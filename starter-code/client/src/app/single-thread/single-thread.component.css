@@ -6,3 +6,16 @@ section {
   width: 90%;
   margin: 0 auto;
 }
+
+.reply-form .control {
+  margin-bottom: 1%;
+}
+
+div.reply-form .field{
+  width: 50%;
+}
+
+.media {
+  border: none;
+  padding-top: 0;
+}

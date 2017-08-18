@@ -1,0 +1,57 @@
+<nav class="navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item" [routerLink]="['']">
+      <img src="http://www.wythenshawegames.org.uk/wp-content/uploads/2014/03/Forum-Logo.jpg" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+    </a>
+  </div>
+  <div class="navbar-start">
+    <a class="navbar-item " [routerLink]="['threads/new']">
+        New Thread
+      </a>
+  </div>
+  <div class="navbar-end">
+    <div class="navbar-item">
+      <div class="field is-grouped" *ngIf="!session.user && session.startLoginCompleted">
+        <p class="control">
+          <a class="button is-success" [routerLink]="['login']">
+              <span class="icon">
+                <i class="fa fa-sign-in"></i>
+              </span>
+              <span>Login</span>
+            </a>
+        </p>
+        <p class="control">
+          <a class="button is-warning" [routerLink]="['signup']">
+                  <span class="icon">
+                    <i class="fa fa-user-plus"></i>
+                  </span>
+                  <span>Signup</span>
+                </a>
+        </p>
+      </div>
+      <div class="field is-grouped" *ngIf="session.user && session.startLoginCompleted">
+        <p class="control">
+          <a class="button is-info">
+                        <span class="icon">
+                          <i class="fa fa-user"></i>
+                        </span>
+                        <span>{{session.user.username}}</span>
+                      </a>
+        </p>
+        <p class="control">
+          <a class="button is-danger" (click)="logout()">
+                      <span class="icon">
+                        <i class="fa fa-sign-out"></i>
+                      </span>
+                      <span>Logout</span>
+                    </a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="navbar-burger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</nav>

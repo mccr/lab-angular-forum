@@ -51,18 +51,11 @@ router.post('/:id/replies', loggedIn, (req, res, next) => {
   });
 
   Thread
-    .findById(req.params.id)
-    .populate('_author replies._author')
+    .findByIdAndUpdate({_id: req.params.id}, {$push: {replies: newReply}}, { new: true })
     .exec((err, thread) => {
-      if (err)     { return res.status(500).json(err); }
       if (!thread) { return res.status(404).json(err); }
-
-      thread.replies.push(newReply);
-
-      thread.save( (err) => {
-        if (err)          { return res.status(500).json(err); }
-        if (thread.errors){ return res.status(400).json(thread); }
-
+      thread.populate('_author replies._author', (err, threadPop) => {
+        if (err)     { return res.status(500).json(err); }
         return res.status(200).json(thread);
       });
   });

@@ -1,9 +1,31 @@
-<h1> New Thread </h1>
-<form (ngSubmit)="addNew(myForm)" #myForm="ngForm">
-  <label> Title </label>
-  <input type="text" [(ngModel)]="title" name="title"/>
-  <label> Content </label>
-  <textarea type="text" [(ngModel)]="content" name="content"></textarea>
+<header>
+</header>
+<section>
+  <div class="title">
+    New Thread
+  </div>
+  <form (ngSubmit)="addNew(myForm)" #myForm="ngForm">
+    <div class="field">
+      <label class="label">Thread Title</label>
+      <div class="control">
+        <input class="input" type="text" placeholder="Winter is coming" [(ngModel)]="title" name="title">
+      </div>
+    </div>
 
-  <button type="submit"> add new thread </button>
-</form>
+    <div class="field">
+      <label class="label">Content</label>
+      <div class="control">
+        <textarea class="textarea" placeholder="You know nothing John Snow" [(ngModel)]="content" name="content"></textarea>
+      </div>
+    </div>
+
+    <div class="field is-grouped">
+      <div class="control">
+        <button class="button is-primary" type="submit">Submit</button>
+      </div>
+      <div class="control">
+        <button class="button is-link" [routerLink]="['']">Cancel</button>
+      </div>
+    </div>
+  </form>
+</section>

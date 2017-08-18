@@ -20,8 +20,10 @@ export class SignupComponent implements OnInit {
     this.session.signup(form.value)
       .subscribe(
       (user) => {
-        console.log(user)
-        this.router.navigate(['private'])
+        this.session.isLoggedIn().subscribe( user => {
+          console.log(user)
+          this.router.navigate([''])
+        });
       },
       (err) => this.error = err
       );

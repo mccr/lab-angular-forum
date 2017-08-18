@@ -13,8 +13,9 @@ import "rxjs/add/operator/mergeMap";
 export class SingleThreadComponent implements OnInit {
   thread:object;
   error: string;
-  content: string;
+  contentReply: string;
   threadId: string;
+  show:boolean = false;
 
   constructor(private ThreadsService: ThreadsService, private route:ActivatedRoute, private Session: SessionService) {
     route.params
@@ -29,8 +30,12 @@ export class SingleThreadComponent implements OnInit {
   ngOnInit() {
   }
 
+  replyForm() {
+    this.show = !this.show;
+  }
   addReply() {
-    this.ThreadsService.addReply(this.threadId, this.content).subscribe();
+    this.ThreadsService.addReply(this.threadId, this.contentReply).subscribe( thread => this.thread = thread);
+    this.contentReply = "";
   }
 
 

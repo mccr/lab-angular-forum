@@ -1,0 +1,18 @@
+header {
+  margin: 2%;
+  font-size: large;
+}
+
+.card {
+  width: 30%;
+  margin: 1%;
+}
+
+.position {
+  display: flex;
+  flex-wrap: wrap;
+}
+.main-title {
+  text-align: center;
+  font-size: xx-large;
+}

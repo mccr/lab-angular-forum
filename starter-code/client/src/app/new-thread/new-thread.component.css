@@ -1,3 +1,11 @@
-label, input, button {
-  display: block;
+header {
+  margin-top: 2%;
+}
+section {
+  width: 60%;
+  margin: auto;
+}
+.title {
+  text-align: center;
+  font-size: xx-large;
 }

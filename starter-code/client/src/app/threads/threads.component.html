@@ -1,5 +1,30 @@
-<div class="position" *ngIf="threads.length !== 0">
-  <div *ngFor="let thread of threads | async">
-    <h1>Title: <a [routerLink]="['threads', thread._id]">{{thread.title}}</a> <small>submitted on {{thread.date}} by {{thread._author.username}}</small></h1>
+<header>
+</header>
+<section>
+  <div class="main-title">
+    Latest Threads
   </div>
-</div>
+  <div class="position" *ngIf="threads.length !== 0">
+    <div class="card" *ngFor="let thread of threads | async">
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="http://bulma.io/images/placeholders/96x96.png" alt="Image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">@{{thread._author.username}}</p>
+            <p class="subtitle is-6">{{thread._author.email}}</p>
+          </div>
+        </div>
+
+        <div class="content">
+          <a [routerLink]="['threads', thread._id]">{{thread.title}}</a>
+          <br>
+          <small>{{thread.date | date: 'short'}}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
